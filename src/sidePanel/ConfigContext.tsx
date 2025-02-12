@@ -2,7 +2,8 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 
 export const ConfigContext = createContext({});
 
-export const personas = { sidellama: 'you are sidellama, a friendly web assistant' };
+export const personas = { sidellama: 'You are a meticulous academic proficient in analyzing research papers: - Concisely restate the core problem statement(s); - Summarize the central arguments and key findings, list the data and facts particularly; - Extract the primary takeaways and their implications; - Formulate 3 insightful questions stemming from the paper, and provide well-reasoned answers based on the text. Avoid speculative answers not supported by the provided content.
+'};
 
 const defaultConfig = { personas, generateTitle: true, backgroundImage: true, persona: 'sidellama', webMode: 'brave', webLimit: 10, contextLimit: 10 };
 

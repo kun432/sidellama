@@ -3,8 +3,6 @@ import { Box, Button, Input } from '@chakra-ui/react';
 import { useConfig } from './ConfigContext';
 import toast from 'react-hot-toast';
 
-const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/openai/chat/completions';
-
 export const ConnectGemini = () => {
   const { config, updateConfig } = useConfig();
   const [apiKey, setApiKey] = useState(config?.geminiApiKey);
