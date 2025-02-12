@@ -3,6 +3,8 @@ import { Box, Button, Input } from '@chakra-ui/react';
 import { useConfig } from './ConfigContext';
 import toast from 'react-hot-toast';
 
+const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/chat/completions';
+
 export const ConnectGemini = () => {
   const { config, updateConfig } = useConfig();
   const [apiKey, setApiKey] = useState(config?.geminiApiKey);
@@ -44,10 +46,21 @@ export const ConnectGemini = () => {
         mr={4}
         placeholder="GEMINI_API_KEY"
         size="sm"
-        type={!visibleApiKeys ? 'password' : undefined}
+        type={!visibleApiKeys ? 'password' : 'text'}
         value={apiKey}
         onChange={e => setApiKey(e.target.value)}
       />
+      <Button
+        _hover={{ background: 'var(--active)', border: '2px solid var(--text)' }}
+        background="var(--active)"
+        border="2px solid var(--text)"
+        borderRadius={16}
+        color="var(--text)"
+        size="sm"
+        onClick={() => setVisibleApiKeys(!visibleApiKeys)}
+      >
+        {visibleApiKeys ? 'Hide' : 'Show'}
+      </Button>
       {!isConnected && (
         <Button
           _hover={{ background: 'var(--active)', border: '2px solid var(--text)' }}
