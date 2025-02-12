@@ -153,6 +153,25 @@ export async function fetchDataAsStream(url: string, data: any, onMessage: any, 
       }
     }
 
+    if (host === "gemini") {
+      const stream = events(response);
+      for await (const event of stream) {
+        try {
+          const received = JSON.parse(event.data || '');
+          const err = received?.x_gemini?.error;
+          if (err) {
+            onMessage(`Error: ${err}`, true);
+            return;
+          }
+          str += received?.choices?.[0]?.delta?.content || '';
+          onMessage(str || '');
+        } catch (error) {
+          onMessage(`${error}`, true);
+          console.error('Error fetching data:', error);
+        }
+      }
+    }
+
     if (host === "openai") {
       const stream = events(response);
       for await (const event of stream) {
