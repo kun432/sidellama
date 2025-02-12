@@ -21,7 +21,7 @@ export const useChatTitle = (isLoading, messages, message) => {
       const url = {
         groq: 'https://api.groq.com/openai/v1/chat/completions',
         ollama: `${config?.ollamaUrl}/api/chat`,
-        gemini: 'https://generativelanguage.googleapis.com/v1beta:chatCompletions',
+        gemini: 'https://generativelanguage.googleapis.com/v1beta/openai/chat/completions',
         openai: 'https://api.openai.com/v1/chat/completions'
       }[currentModel?.host || ''];
 
