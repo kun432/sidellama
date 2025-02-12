@@ -46,7 +46,7 @@ export const useUpdateModels = () => {
       if (config?.geminiApiKey) {
         const geminiModels = await fetchDataSilently(GEMINI_URL, { headers: { Authorization: `Bearer ${config?.geminiApiKey}` } });
         if (!geminiModels) {
-           updateConfig({ geminiConnected: false });
+          updateConfig({ geminiConnected: false });
         } else {
           const parsedModels = geminiModels?.data.map((m: any) => ({ ...m, host: 'gemini' })) || [];
           models = [...models, ...parsedModels];

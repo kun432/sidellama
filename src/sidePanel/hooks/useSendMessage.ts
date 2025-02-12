@@ -74,11 +74,9 @@ const useSendMessage = (
     let authHeader;
     if (currentModel?.host === 'groq') {
       authHeader = { Authorization: `Bearer ${config?.groqApiKey}` };
-    }
-    if (currentModel?.host === 'gemini') {
+    } else if (currentModel?.host === 'gemini') {
       authHeader = { Authorization: `Bearer ${config?.geminiApiKey}` };
-    } 
-    else if (currentModel?.host === 'openai') {
+    } else if (currentModel?.host === 'openai') {
       authHeader = { Authorization: `Bearer ${config?.openAiApiKey}` };
     }
 

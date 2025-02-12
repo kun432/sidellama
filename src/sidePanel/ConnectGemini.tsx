@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Box, Button, Input } from '@chakra-ui/react';
 import { useConfig } from './ConfigContext';
 import toast from 'react-hot-toast';
@@ -7,6 +6,7 @@ import toast from 'react-hot-toast';
 export const ConnectGemini = () => {
   const { config, updateConfig } = useConfig();
   const [apiKey, setApiKey] = useState(config?.geminiApiKey);
+  const [visibleApiKeys, setVisibleApiKeys] = useState(false);
   const onConnect = () => {
     fetch(GEMINI_URL, { headers: { Authorization: `Bearer ${apiKey}` } })
       .then(res => res.json())
