@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Box, Button, Input } from '@chakra-ui/react';
 import { useConfig } from './ConfigContext';
 import toast from 'react-hot-toast';
+import { GEMINI_URL } from './constants';
 
 export const ConnectGemini = () => {
   const { config, updateConfig } = useConfig();
