@@ -174,16 +174,19 @@ const SettingsDrawer = ({ isOpen, onClose, config, updateConfig, availableModelN
             whiteSpace="nowrap"
             onChange={e => updateConfig({ selectedModel: e.target.value })}
           >
-            {!availableModelNames && <option disabled value="default">loading models...</option>}
-            {availableModelNames?.map((m: string) => {
-              const currentModel = config?.models?.find(({ id }: any) => id === m);
-              const disabled = currentModel?.active === false;
-              return (
-                <option disabled={disabled} key={m} value={m}>
-                  {currentModel?.host ? `(${currentModel.host}) ${m}` : m}
+            {!config?.models?.length ? (
+              <option disabled value="default">loading models...</option>
+            ) : (
+              config.models.map((model: any) => (
+                <option 
+                  key={model.id} 
+                  disabled={model.active === false}
+                  value={model.id}
+                >
+                  {model.host ? `(${model.host}) ${model.id}` : model.id}
                 </option>
-              );
-            })}
+              ))
+            )}
           </Select>
         </DrawerSection>
         <DrawerLinkSection title="configuration" onClick={() => { setSettingsMode(true); onClose(); }} />
