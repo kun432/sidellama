@@ -11,7 +11,12 @@ export const ConnectGemini = () => {
   const [visibleApiKeys, setVisibleApiKeys] = useState(false);
   const onConnect = () => {
     fetch(GEMINI_URL, { headers: { Authorization: `Bearer ${apiKey}` } })
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      })
       .then(data => {
         if (data?.error) {
           toast.error(`${data?.error?.message}`);
