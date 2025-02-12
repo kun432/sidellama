@@ -67,7 +67,7 @@ const useSendMessage = (
     const url = {
       groq: 'https://api.groq.com/openai/v1/chat/completions',
       ollama: `${config?.ollamaUrl}/api/chat`,
-      gemini: 'https://generativelanguage.googleapis.com/v1beta/chat/completions',
+      gemini: 'https://generativelanguage.googleapis.com/v1beta:chatCompletions',
       lmStudio: `${config?.lmStudioUrl}/v1/chat/completions`,
       openai: 'https://api.openai.com/v1/chat/completions',
     }[currentModel?.host || ''];
