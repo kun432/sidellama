@@ -51,7 +51,7 @@ export const Connect: React.FC = () => (
       <ConnectionSection Component={ConnectOllama} title="ollama" />
       <ConnectionSection Component={ConnectLmStudio} title="lm studio" />
       <ConnectionSection Component={ConnectGroq} title="groq" link="https://console.groq.com/keys" />
-      <ConnectionSection Component={ConnectGemini} title="gemini" link="https://console.anthropic.com/settings/keys" /> */}
+      <ConnectionSection Component={ConnectGemini} title="gemini" link="https://console.anthropic.com/settings/keys" /> 
       <ConnectionSection Component={ConnectOpenAI} title="openai" link="https://platform.openai.com/api-keys" />
     </AccordionPanel>
   </AccordionItem>
