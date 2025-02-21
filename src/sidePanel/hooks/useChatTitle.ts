@@ -21,7 +21,7 @@ export const useChatTitle = (isLoading, messages, message) => {
       const url = {
         groq: 'https://api.groq.com/openai/v1/chat/completions',
         ollama: `${config?.ollamaUrl}/api/chat`,
-        gemini: '',
+        gemini: 'https://generativelanguage.googleapis.com/v1beta/openai/chat/completions',
         openai: 'https://api.openai.com/v1/chat/completions'
       }[currentModel?.host || ''];
 
@@ -37,7 +37,7 @@ export const useChatTitle = (isLoading, messages, message) => {
         (part: string) => {
           if (part) setChatTitle(part.replace('"', '').replace('"', '').replace('# ', '').trim());
         },
-        { Authorization: `Bearer ${config?.openAiApiKey}` },
+        { Authorization: `Bearer ${config?.geminiApiKey}` },
         currentModel?.host
       );
     }

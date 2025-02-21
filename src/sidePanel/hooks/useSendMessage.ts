@@ -67,14 +67,15 @@ const useSendMessage = (
     const url = {
       groq: 'https://api.groq.com/openai/v1/chat/completions',
       ollama: `${config?.ollamaUrl}/api/chat`,
-      gemini: '',
+      gemini: 'https://generativelanguage.googleapis.com/v1beta/openai/chat/completions',
       lmStudio: `${config?.lmStudioUrl}/v1/chat/completions`,
       openai: 'https://api.openai.com/v1/chat/completions',
     }[currentModel?.host || ''];
-
     let authHeader;
     if (currentModel?.host === 'groq') {
       authHeader = { Authorization: `Bearer ${config?.groqApiKey}` };
+    } else if (currentModel?.host === 'gemini') {
+      authHeader = { Authorization: `Bearer ${config?.geminiApiKey}` };
     } else if (currentModel?.host === 'openai') {
       authHeader = { Authorization: `Bearer ${config?.openAiApiKey}` };
     }

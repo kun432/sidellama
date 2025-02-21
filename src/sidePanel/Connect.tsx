@@ -7,6 +7,7 @@ import { SettingTitle } from './SettingsTitle';
 import { ConnectClaude } from './ConnectClaude';
 import { ConnectLmStudio } from './ConnectLmStudio';
 import { ConnectOpenAI } from './ConnectOpenAI';
+import { ConnectGemini } from './ConnectGemini';
 
 type ConnectionProps = {
   title: string;
@@ -50,7 +51,7 @@ export const Connect: React.FC = () => (
       <ConnectionSection Component={ConnectOllama} title="ollama" />
       <ConnectionSection Component={ConnectLmStudio} title="lm studio" />
       <ConnectionSection Component={ConnectGroq} title="groq" link="https://console.groq.com/keys" />
-      {/* <ConnectionSection Component={ConnectClaude} title="claude" link="https://console.anthropic.com/settings/keys" /> */}
+      <ConnectionSection Component={ConnectGemini} title="gemini" link="https://aistudio.google.com/app/apikey" /> 
       <ConnectionSection Component={ConnectOpenAI} title="openai" link="https://platform.openai.com/api-keys" />
     </AccordionPanel>
   </AccordionItem>
